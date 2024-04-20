@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5123/postgres
+    username: postgres
+    password: 1574
+    driver-class-name: org.postgresql.Driver
