@@ -1,6 +1,13 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5123/postgres
+    url: jdbc:postgresql://localhost:5123/postgres?currentSchema=volvic
     username: postgres
     password: 1574
     driver-class-name: org.postgresql.Driver
+
+
+  batch:
+    job:
+      names: ${job.name:NONE}
+    jdbc:
+      initialize-schema: always
