@@ -7,6 +7,7 @@ import org.springframework.batch.core.Step;
 import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
+import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.core.scope.context.ChunkContext;
@@ -27,7 +28,6 @@ public class JobConfiguration {
     public Job pracJob() {
         return jobBuilderFactory.get("pracJob")
                 .start(pracStep())
-                .incrementer(new RunIdIncrementer())
                 .build();
     }
 
@@ -36,7 +36,7 @@ public class JobConfiguration {
         return stepBuilderFactory.get("pracStep").tasklet(new Tasklet() {
             @Override
             public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
-                log.info(">>>>task start");
+                log.info(">>>>step1");
 
                 return RepeatStatus.FINISHED;
             }
