@@ -11,3 +11,9 @@ spring:
       names: ${job.name:NONE}
     jdbc:
       initialize-schema: always
+
+mybatis:
+  type-aliases-package: org.park.firstbatch
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: mapper/**/*.xml

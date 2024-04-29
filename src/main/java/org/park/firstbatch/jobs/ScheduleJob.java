@@ -17,7 +17,7 @@ public class ScheduleJob {
     private final Job pracJob;
     private final JobLauncher jobLauncher;
 
-    @Scheduled(cron = "*/2 * * * * *")
+//    @Scheduled(cron = "*/2 * * * * *")
     public void executeBusJob() {
         Date now = new Date();
         JobParameters jobParameters = new JobParametersBuilder().addDate("date", now).toJobParameters();

@@ -23,6 +23,7 @@ public class JobConfiguration {
 
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
+    private final TestService testService;
 
     @Bean
     public Job pracJob() {
@@ -37,6 +38,9 @@ public class JobConfiguration {
             @Override
             public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
                 log.info(">>>>step1");
+                testService.insertData1();
+                testService.insertData2();
+
 
                 return RepeatStatus.FINISHED;
             }
